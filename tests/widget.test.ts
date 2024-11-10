@@ -33,7 +33,7 @@ test.describe("Widget tests", () => {
       const testMessage = chatBotMessages.testMessage;
       const emailAddress = chatBotMessages.email;
 
-      //Act Send message
+      //Act Send message from widget to user panel
       await sideNavigationBar.goToInbox();
       await inboxPage.assertInboxPageIsOpen();
       popup = await inboxPage.clickSimulateAConversationButtonAndGetThePopUp();
@@ -60,7 +60,7 @@ test.describe("Widget tests", () => {
       //Arrange
       const responseMessage = chatBotMessages.responseMessage;
 
-      //Act
+      //Act send message from user panel to the widget
       await inboxPage.clickJoinConversationButton();
       await inboxPage.typeResponseMessageInUserPanel(responseMessage);
       await inboxPage.sendTheResponseMessageInUserPanel();
