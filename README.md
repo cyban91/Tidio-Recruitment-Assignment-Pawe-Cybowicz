@@ -43,3 +43,29 @@ Add the two missing steps to the test. In the first step click on the button "Si
 Use a docker to containerize project. Use the official Playwright Docker image or build a custom image. Include information how to run test from the docker side in the readme.
 
 Good luck!
+
+
+                                                                HOW TO RUN TESTS USING DOCKER
+
+Before running tests with Docker, make sure the following are in place:
+
+    1. If you do not already have Docker installed - do it from docker.com.
+        - Windows and macOS: You can also install Docker Desktop, which provides a GUI and command-line interface.
+        - Linux: Install Docker Engine via package managers or Docker’s installation script. 
+
+    2. Make sure Dockerfile contains latest Playwright image (as of 10.11.2024 it is v1.48.2-focal)
+
+If above is taken care of - proceed to building the image and running your tests.
+
+    1. Build the Docker Image using this command in terminal (insert your image name instead of <name of the image>): docker build -t <name of the image> . 
+
+    2. After the image has built, run your tests using this command in terminal: docker run --rm <name of the image> 
+        - "--rm" removes the container after the run  
+
+    3. If you want to automatically delete the image after running your tests, expand the command from point 2, to look like this: docker run --rm <name of the image> && docker rmi <name of the image> (if you are using bash terminal), or docker run --rm <name of the image> ; docker rmi <name of the image> (if you are using powershell terminal).
+
+    4. If you are more of a UI person, you can remove containers and delete images via Docker Desktop. 
+
+
+
+
